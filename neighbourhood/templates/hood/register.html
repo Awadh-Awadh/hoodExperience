@@ -1,12 +1,12 @@
-{% extends 'neighbourhood/base.html' %}
+{% extends 'hood/base.html' %}
 
 
 {% block content %}
 <div class="container">
   <form method = 'post'>
-
+    {%csrf_token%}
     {{form.as_p}}
-    
+    <button type = 'submit' >Submit</button>
   </form>
 </div>
 {% endblock %}

@@ -12,4 +12,4 @@ def register(request):
     context = {
       'form': form
     }
-    return render(request, 'neighbourhood/register.html', context)
+    return render(request, 'hood/register.html', context)
