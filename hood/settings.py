@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'neighbourhood.apps.NeighbourhoodConfig'
+    'neighbourhood.apps.NeighbourhoodConfig',
+    'crispy_forms',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +120,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+cloudinary.config(
+    cloud_name = 'die2khepc',
+    api_key = os.environ.get('API_KEY'),
+    api_secret = os.environ.get('API_SECRET')
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -128,3 +136,5 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'neighbourhood.CustomUser'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

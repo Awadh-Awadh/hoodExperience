@@ -1,12 +1,36 @@
 {% extends 'hood/base.html' %}
 
-
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-  <form method = 'post'>
-    {%csrf_token%}
-    {{form.as_p}}
-    <button type = 'submit' >Submit</button>
-  </form>
+
+  <div class="form-container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form">
+          <div class="header">
+            <h1>Register</h1>
+          </div>
+          <form method='post'>
+            {%csrf_token%}
+            {{form|crispy}}
+            <button class = 'btn btn-lg btn-outline-dark' type='submit'>Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="login">
+          <div class="login-link">
+            <h4>Already have an Account?</h4>
+            <a href="{% url 'login' %}"><button class="btn btn-lg btn-dark">Log in</button></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
 </div>
 {% endblock %}
