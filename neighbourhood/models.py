@@ -28,7 +28,7 @@ class Profile(models.Model):
 
     def delete_profile(self):
         self.delete()
-        
+
     def _str__(self):
         return self.user.username
 
@@ -84,9 +84,22 @@ class Business(models.Model):
 
     def update_bist(cls,bist_id, update_des):
         bist = cls.objects.filter(id =bist_id ).update(description = update_des )
-
-
-
+        return bist
 
     def __str__(self):
        return self.name
+
+
+class Posts(models.Model):
+    image = CloudinaryField('post_image')
+    title = models.CharField(max_length=200)
+    caption = models.TextField()
+    date_posted = models.DateTimeField(auto_now_add=True)
+    posted_by = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    hood = models.ForeignKey(Neighbourhood, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        odering = ['-date_posted']
