@@ -1,0 +1,65 @@
+{% extends 'hood/base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+       <div class="twPc-div">
+      <a class="twPc-bg twPc-block"></a>
+  
+    <div>
+      <div class="twPc-button">
+              <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow -->
+              <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              <!-- Twitter Button -->   
+      </div>
+  
+      <a title="Mert S. Kaplan" href="" class="twPc-avatarLink">
+        <img alt="Mert S. Kaplan" src="{{profile.pp.url}}" class="twPc-avatarImg">
+      </a>
+  
+      <div class="twPc-divUser">
+        <div class="twPc-divName">
+          <a href="https://twitter.com">{{profile.user.first_name}} {{profile.user.last_name}}</a>
+        </div>
+        <span>
+          <a href="https://twitter.com/mertskaplan">@<span>{{profile.user.username}}</span></a>
+        </span>
+        <p>{{profile.email}}</p>
+      </div>
+  
+      <div class="twPc-divStats">
+        <ul class="twPc-Arrange">
+          <li class="twPc-ArrangeSizeFit">
+            <a href="" title="9.840 Tweet">
+              <span class="twPc-StatLabel twPc-block">Posts</span>
+              <span class="twPc-StatValue">{{count}}</span>
+            </a>
+          </li>
+          <li class="twPc-ArrangeSizeFit">
+              <span class="twPc-StatLabel twPc-block">Bio</span>
+              <span class="twPc-StatValue">{{profile.bio}}</span>
+            </a>
+          </li>
+          <li class="twPc-ArrangeSizeFit">
+            <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+              <span class="twPc-StatLabel twPc-block">Hood</span>
+              <span class="twPc-StatValue">{{profile.hood.name}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    </div>
+  <div class="col-md-5">
+    <div class="edit">
+      <h1 class = 'text-center'>Edit Profile</h1>
+    </div>
+  </div>
+  </div>
+  </div>
+
+{% endblock %}

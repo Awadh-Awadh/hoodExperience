@@ -1,7 +1,9 @@
+from logging import LoggerAdapter
 from django.shortcuts import render,redirect
 from .forms import CustormUserCreationForm
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import Profile ,Neighbourhood, Posts, Business
 
 
 
@@ -14,11 +16,11 @@ def register(request):
             form.save()
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
-            subject = 'Welcome to Hood Experince'
-            message = f"Hello {username} Thank you for registering with us"
-            email_from = settings.EMAIL_HOST_USERNAME
+            subject = "welcome to Awardds"             
+            message = f"Hello {username}, thank you for registering to Awardds"
+            email_from = settings.EMAIL_HOST_USER
             recipient_list = [email]
-            send_mail( subject,message,email_from,recipient_list)
+            send_mail(subject, message, email_from,recipient_list)
             return redirect('login')
     else:
         form = CustormUserCreationForm()
@@ -31,3 +33,19 @@ def register(request):
 
 def hero(request):
     return render(request, 'hood/hero.html')
+
+def home(request):
+    return render(request ,'hood/hoodView.html')
+
+def profile(request):
+    loggedin_user = request.user
+    print(loggedin_user)
+    profile = Profile.objects.get(user=loggedin_user)
+    count = Posts.objects.filter(posted_by = loggedin_user).count()
+   
+    # posts = Posts.objects.filter( posted_by=profile).all()
+    context = {
+        'profile':profile,
+        'count':count
+    }
+    return render(request, 'hood/profile.html', context)

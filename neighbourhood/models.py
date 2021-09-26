@@ -26,8 +26,8 @@ class Neighbourhood(models.Model):
     name = models.CharField(max_length=200)
     location = models.CharField(max_length=200, choices=locations)
     description = models.TextField()
-    residents = models.IntegerField(blank = True)
-    admin = models.ForeignKey("Profile", on_delete=models.CASCADE)
+    residents = models.IntegerField(blank = True, null=True)
+    admin = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     police = models.IntegerField(blank=True)
     health = models.IntegerField(blank=True)
 
