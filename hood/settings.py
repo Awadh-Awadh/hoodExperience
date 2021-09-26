@@ -138,3 +138,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'neighbourhood.CustomUser'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# email configurations
+
+EMAIL_BACKEND =  'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USERNAME = os.environ.get('EMAIL_HOST_USERNAME')
+EMAIL_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = 'True'
