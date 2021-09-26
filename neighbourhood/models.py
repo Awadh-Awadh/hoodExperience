@@ -23,6 +23,15 @@ class Profile(models.Model):
     hood = models.ForeignKey("Neighbourhood", on_delete=models.CASCADE)
     pp = CloudinaryField('image')
 
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+        
+    def _str__(self):
+        return self.user.username
+
 locations = [
     ('juja','juja'),
     ('highpoint','highpoint'),
