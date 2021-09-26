@@ -7,5 +7,5 @@ class NeighbourhoodConfig(AppConfig):
 
 
 
-    def ready(self):
-        import neighbourhood.signals
+    # def ready(self):
+    #     import neighbourhood.signals

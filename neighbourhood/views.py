@@ -26,3 +26,8 @@ def register(request):
       'form': form
     }
     return render(request, 'hood/register.html', context)
+
+
+
+def hero(request):
+    return render(request, 'hood/hero.html')

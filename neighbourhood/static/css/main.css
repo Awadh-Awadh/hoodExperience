@@ -1,0 +1,25 @@
+#hero{
+  background-image: url("/static/images/home.jpg");
+   background-position:center;
+   background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.explore{
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.explore-btn{
+padding: 1rem 2rem;
+border-radius: 10px;
+
+
+}
+.custom-btn{
+  color:#fff !important;
+  font-size: 1.5rem !important;
+
+}

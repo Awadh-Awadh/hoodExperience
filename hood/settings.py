@@ -56,6 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'hood.urls'
+AUTH_USER_MODEL = 'neighbourhood.CustomUser'
 
 TEMPLATES = [
     {
@@ -135,7 +136,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'neighbourhood.CustomUser'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -147,3 +148,6 @@ EMAIL_HOST_USERNAME = os.environ.get('EMAIL_HOST_USERNAME')
 EMAIL_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = 'True'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'

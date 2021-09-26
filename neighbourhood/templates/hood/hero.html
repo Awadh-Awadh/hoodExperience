@@ -1,0 +1,25 @@
+{% extends 'hood/base.html' %}
+
+{% block content %}
+<section id = 'hero'>
+  <nav class="navbar fixed-top navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand">HoodMood</a>
+     <ul class = "navbar-nav">
+       <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{%url 'login'%}">Register/Login</a>
+       </li>
+     </ul>
+    </div>
+   </nav>
+   <div class="explore">
+    <div class="explore-btn btn-success">
+      <a href="{% url 'login' %}"><button class="btn custom-btn">
+        Explore
+      </button></a>
+    </div>
+   
+  </div>
+</section>
+
+{% endblock %}
