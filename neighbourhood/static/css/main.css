@@ -32,20 +32,24 @@ border-radius: 10px;
   margin: 2rem 0;
 
 }
+.email{
+  margin-left: 5rem;
+}
 .twPc-bg {
   background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
   background-position: 0 50%;
   background-size: 100% auto;
   border-bottom: 1px solid #e1e8ed;
   border-radius: 4px 4px 0 0;
-  height: 100px;
+  height: 130px;
   width: 100%;
 }
 .twPc-block {
   display: block !important;
+  color: black !important;
 }
 .twPc-button {
-  margin: -35px -10px 0;
+  margin:-50px -10px 0;
   text-align: right;
   width: 100%;
 }
@@ -71,9 +75,10 @@ border-radius: 10px;
   margin: 10px 0 0;
 }
 .twPc-divName {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 700;
-  line-height: 21px;
+  line-height: 40px;
+  margin: 10px;
 }
 .twPc-divName a {
   color: inherit !important;
@@ -108,6 +113,7 @@ ul.twPc-Arrange {
   font-size: 18px;
   font-weight: 500;
   transition: color 0.15s ease-in-out 0s;
+  color: black !important;
 }
 .twPc-StatLabel {
   color: #8899a6;

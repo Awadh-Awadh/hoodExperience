@@ -18,7 +18,7 @@
                 <small> Posted By:{{post.posted_by.username}}</small>
                 <br>
                 <small>{{post.date_posted}}</small>
-                <hr>
+                <br>
               </div>
               {% endfor %}
             {% else %}
@@ -49,6 +49,17 @@
           <h5>Number of Occupants:</h5>
           <span>{{hood.residents}}</span>
         </div>
+        <hr>
+        <div class="location">
+          <h5>Number of police Stations:</h5>
+          <span>{{hood.police}}</span>
+        </div>
+        <hr>
+        <div class="location">
+          <h5>Number of Health Amenities:</h5>
+          <span>{{hood.health}}</span>
+        </div>
+        <hr>
       </div>
 
     </div>
