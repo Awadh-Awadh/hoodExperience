@@ -35,7 +35,14 @@ def hero(request):
     return render(request, 'hood/hero.html')
 
 def home(request):
-    return render(request ,'hood/hoodView.html')
+    hood = Neighbourhood.objects.get(admin = request.user)
+    print(hood)
+    posts = Posts.objects.all()
+    context = {
+        'posts':posts,
+        'hood':hood
+    }
+    return render(request ,'hood/hoodView.html',context)
 
 def profile(request):
     loggedin_user = request.user
@@ -59,3 +66,11 @@ def profile(request):
         'posts':posts
     }
     return render(request, 'hood/profile.html', context)
+
+
+def bist(request):
+    posts = Posts.objects.all()
+    context = {
+        'posts':posts
+    }
+    return render(request, 'hood/business.html',context)

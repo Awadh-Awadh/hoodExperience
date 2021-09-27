@@ -121,3 +121,18 @@ ul.twPc-Arrange {
   display: flex;
   justify-content: space-evenly;
 }
+.navbar{
+  width: 100% !important;
+}
+#posts{
+  margin-top: 4rem;
+}
+.post-img{
+  width: 70%;
+  height: 400px;
+  margin: 2rem 3rem;
+}
+.hoodinfo{
+  position: fixed;
+  left: 55rem;
+}
