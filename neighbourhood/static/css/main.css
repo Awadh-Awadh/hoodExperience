@@ -130,7 +130,7 @@ ul.twPc-Arrange {
 .navbar{
   width: 100% !important;
 }
-#posts{
+#posts,.posts-bist{
   margin-top: 4rem;
 }
 .post-img{

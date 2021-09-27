@@ -9,9 +9,18 @@
       <div class="col-md-12">
         {% if bists %}
           {% for bist in bists %}
-          <div class="posts-bist">
-            <img class = "post-img" src="{{bist.bist_image.url}}" alt="{{bist.title}}">
+          <div class="posts">
+            <img class = 'post-img' src="{{bist.bist_image.url}}" alt="{{post.title}}">
           </div>
+          <div class="post-info">
+            <h5>{{bist.name}}</h5>
+            <p>Make a call at {{bist.mobile}}</p>
+           <a class='btn btn-lg btn-primary' href="">Apply</a>
+            <br>
+            <small>{{post.date_posted}}</small>
+            <br>
+          </div>
+          <hr>
           {% endfor %}
         {% else %}
         <div class="welcome">
