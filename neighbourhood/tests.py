@@ -91,7 +91,7 @@ class TestApp(TestCase):
 
    #test update methods
     def test_update_hood(self):
-       hood = self.hood.create_neighbourhood()
+       self.hood.create_neighbourhood()
        hood_id= Neighbourhood.objects.first().id
        Neighbourhood.update(description = 'new hood')
        new_hood = Neighbourhood.objects.get(id = hood_id)
@@ -99,8 +99,14 @@ class TestApp(TestCase):
 
 
     def test_bist_update(self):
-      bist = self.bs.create_bist()
+      self.bs.create_bist()
       bist_id = Business.objects.first().id
       Business.upate(description = 'New bs')
       new_bist = Business.objects.get(id = bist_id)
       self.assertTrue(new_bist.description, 'New bs' )
+
+
+    def test_search_business(self):
+        self.bs.create_bist()
+        found = Business.search_bist('Hiring')
+        self.assertTrue(len(found)==1)

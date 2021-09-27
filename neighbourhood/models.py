@@ -39,9 +39,9 @@ class Neighbourhood(models.Model):
 
     def delete_neighbourhood(self):
         self.delete()
-    @classmethod
-    def find_neighbourhood(cls, id):
-        return cls.objects.get(id = id)
+    # @classmethod
+    # def find_neighbourhood(cls, id):
+    #     return cls.objects.get(id = id)
     @classmethod
     def update_hood(cls, id, update_des):
         updated_hood = cls.objects.filter(id = id).update(description = update_des)
