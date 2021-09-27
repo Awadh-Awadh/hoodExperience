@@ -40,4 +40,25 @@ class TestApp(TestCase):
         self.assertTrue(isinstance(self.post,Posts))
 
 
-    #test methods
+    #test save methods
+
+    def test_save_hood(self):
+        self.hood.save()
+        n_hood = Neighbourhood.objects.all()
+        self.assertTrue(len(n_hood)>0)
+
+    def test_save_profile(self):
+        self.profile.save()
+        user_profile = Profile.objects.all()
+        self.assertTrue(len(user_profile)>0)
+
+
+    def test_save_bist(self):
+        self.bs.save()
+        bist= Profile.objects.all()
+        self.assertTrue(len(bist)>0)
+
+    def test_save_post(self):
+        self.post.save()
+        pst= Profile.objects.all()
+        self.assertTrue(len(pst)>0)
