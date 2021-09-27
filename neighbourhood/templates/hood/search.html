@@ -1,13 +1,14 @@
 {% extends 'hood/base.html' %}
 
-
+{% block content %}
 <div class="container-fluid">
+  {% if results %}
   <div class="images">
-    {% for search in searches %}
+    {% for search in results %}
 
   <div class = "eachImage">
     <div class="content-overlay"></div>
-    <img class = 'content-image' src="{{search.image.url}}" alt="">
+    <img class = 'content-image' src="{{search.bist_image.url}}" alt="">
   
   <div class="content-details fadeIn-bottom">
     <h3 class="content-title">{{search.title}}</h3>
@@ -16,7 +17,12 @@
   </div>
   {% endfor %}
  </div>
+ {% else %}
+ <div class="no-res">
+   <h5>No results at the moment</h5>
+ </div>
+ {% endif %}
   </div class = 'button'>
-  <a href="{% url 'projects' %}"><button class="btn btn-lg btn-outline-success">Back</button>
+  <a href="{% url 'home' %}"><button class="btn btn-lg btn-outline-primary">Back</button>
   </a>
  {% endblock %}

@@ -12,11 +12,17 @@
   left: 50%;
   transform: translate(-50%,-50%);
 }
+.login{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.login-link{
+margin: 4rem 0;
+}
 .explore-btn{
 padding: 1rem 2rem;
 border-radius: 10px;
-
-
 }
 .custom-btn{
   color:#fff !important;
@@ -153,4 +159,7 @@ ul.twPc-Arrange {
 .post-profile-img{
   width: 200px;
   height: 150px;
+}
+.logs{
+  margin: 2rem 0;
 }
