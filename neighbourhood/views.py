@@ -1,6 +1,6 @@
 from logging import LoggerAdapter
 from django.shortcuts import render,redirect
-from .forms import CustormUserCreationForm,EditProfile
+from .forms import CustormUserCreationForm,EditProfile, PostForm
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Profile ,Neighbourhood, Posts, Business
@@ -74,3 +74,11 @@ def bist(request):
         'bists':bists
     }
     return render(request, 'hood/business.html',context)
+
+
+def post(request):
+    form = PostForm()
+    context = {
+        'form':form
+    }
+    return render(request, 'hood/post.html', form)
