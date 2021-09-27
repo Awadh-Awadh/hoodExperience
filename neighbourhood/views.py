@@ -35,12 +35,12 @@ def hero(request):
     return render(request, 'hood/hero.html')
 
 def home(request):
-    hood = Neighbourhood.objects.get(admin = request.user)
+    hood = request.user.profile.hood
     print(hood)
-    posts = Posts.objects.all()
+    posts = Posts.objects.filter(hood = hood).all()
     context = {
         'posts':posts,
-        'hood':hood
+         'hood':hood
     }
     return render(request ,'hood/hoodView.html',context)
 
@@ -71,6 +71,6 @@ def profile(request):
 def bist(request):
     bists = Business.objects.all()
     context = {
-        'posts':bists
+        'bists':bists
     }
     return render(request, 'hood/business.html',context)
