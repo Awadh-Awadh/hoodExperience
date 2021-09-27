@@ -101,5 +101,12 @@ def contacts(request):
     hood = request.user.profile.hood
     return render(request, 'hood/contact.html', {'hood':hood})
 
-# def search(request):
+def search(request):
+    query = request.GET.get('q')
+    results = Business.search_bist(query)
+    print(results)
+    context = {
+        'results':results
+    }
+    return render(request, 'hood/search.html',context )
 
