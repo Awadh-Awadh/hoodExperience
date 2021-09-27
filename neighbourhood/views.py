@@ -95,3 +95,11 @@ def post(request):
         'form':form
     }
     return render(request, 'hood/post.html', context)
+
+
+def contacts(request):
+    hood = request.user.profile.hood
+    return render(request, 'hood/contact.html', {'hood':hood})
+
+# def search(request):
+
