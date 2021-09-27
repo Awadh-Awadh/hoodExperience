@@ -125,7 +125,7 @@ ul.twPc-Arrange {
 }
 .available-posts{
   display: flex;
-  justify-content: space-evenly;
+  justify-content:space-between;
 }
 .navbar{
   width: 100% !important;
@@ -149,4 +149,8 @@ ul.twPc-Arrange {
  width: 60%;
  height: 500px;
  margin: 4rem auto;
+}
+.post-profile-img{
+  width: 200px;
+  height: 150px;
 }

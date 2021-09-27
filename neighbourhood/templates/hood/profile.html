@@ -58,6 +58,9 @@
     {% if posts %}
     <div class="available-posts">
       {% for post in posts %}
+      <div class="posts-profile">
+        <img class = 'post-profile-img' src="{{post.image.url}}" alt="{{post.title}}">
+      </div>
       {% endfor %}
     </div>
     {%else %}
