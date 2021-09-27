@@ -101,7 +101,10 @@ class Posts(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     posted_by = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     hood = models.ForeignKey(Neighbourhood, on_delete = models.CASCADE)
-
+    
+    def save_post(self):
+        self.save()
+    
     def __str__(self):
         return self.title
 

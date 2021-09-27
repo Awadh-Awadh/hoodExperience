@@ -43,22 +43,46 @@ class TestApp(TestCase):
     #test save methods
 
     def test_save_hood(self):
-        self.hood.save()
+        self.hood.create_neighbourhood()
         n_hood = Neighbourhood.objects.all()
         self.assertTrue(len(n_hood)>0)
 
     def test_save_profile(self):
-        self.profile.save()
+        self.profile.save_profile()
         user_profile = Profile.objects.all()
         self.assertTrue(len(user_profile)>0)
 
 
     def test_save_bist(self):
-        self.bs.save()
+        self.bs.create_bist()
         bist= Profile.objects.all()
         self.assertTrue(len(bist)>0)
 
     def test_save_post(self):
-        self.post.save()
+        self.post.save_post()
         pst= Profile.objects.all()
         self.assertTrue(len(pst)>0)
+
+
+    #test delete methods
+
+    def test_delete_hood(self):
+        hood = self.hood
+        hood.create_neighbourhood()
+        hood.delete_neighbourhood()
+        user_hood = Neighbourhood.objects.all()
+        self.assertEquals(len(user_hood) == 0)
+
+    def test_delete_profile(self):
+        profile = self.profile
+        profile.save_profile()
+        profile.delete_neighbourhood()
+        user_profile = Profile.objects.all()
+        self.assertEquals(len(user_profile) == 0)
+
+    def test_delete_bist(self):
+        bist = self.bs
+        bist.create_bist()
+        bist.delete_bist()
+        user_bist = Business.objects.all()
+        self.assertEquals(len(user_bist) == 0)
