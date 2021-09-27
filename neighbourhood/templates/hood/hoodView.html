@@ -12,6 +12,14 @@
               <div class="posts">
                 <img class = 'post-img' src="{{post.image.url}}" alt="{{post.title}}">
               </div>
+              <div class="post-info">
+                <h5>{{post.title}}</h5>
+                <p>{{post.caption}}</p>
+                <small> Posted By:{{post.posted_by.username}}</small>
+                <br>
+                <small>{{post.date_posted}}</small>
+                <hr>
+              </div>
               {% endfor %}
             {% else %}
               <h3 class = 'text-muted'>No Posts At the Moment</h3>

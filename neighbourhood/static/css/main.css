@@ -130,6 +130,9 @@ ul.twPc-Arrange {
 .post-img{
   width: 70%;
   height: 400px;
+  margin: 0 3rem;
+}
+.post-info{
   margin: 2rem 3rem;
 }
 .hoodinfo{
