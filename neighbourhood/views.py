@@ -69,8 +69,8 @@ def profile(request):
 
 
 def bist(request):
-    posts = Posts.objects.all()
+    bists = Business.objects.all()
     context = {
-        'posts':posts
+        'posts':bists
     }
     return render(request, 'hood/business.html',context)
