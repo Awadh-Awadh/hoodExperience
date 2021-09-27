@@ -38,7 +38,7 @@ border-radius: 10px;
   background-size: 100% auto;
   border-bottom: 1px solid #e1e8ed;
   border-radius: 4px 4px 0 0;
-  height: 95px;
+  height: 100px;
   width: 100%;
 }
 .twPc-block {
@@ -68,7 +68,7 @@ border-radius: 10px;
   width: 72px;
 }
 .twPc-divUser {
-  margin: 5px 0 0;
+  margin: 10px 0 0;
 }
 .twPc-divName {
   font-size: 18px;
@@ -79,8 +79,8 @@ border-radius: 10px;
   color: inherit !important;
 }
 .twPc-divStats {
-  margin-left: 11px;
-  padding: 10px 0;
+  margin-left: 15px;
+  padding: 20px 0;
 }
 .twPc-Arrange {
   box-sizing: border-box;
@@ -116,4 +116,8 @@ ul.twPc-Arrange {
   overflow: hidden;
   text-transform: uppercase;
   transition: color 0.15s ease-in-out 0s;
+}
+.available-posts{
+  display: flex;
+  justify-content: space-evenly;
 }

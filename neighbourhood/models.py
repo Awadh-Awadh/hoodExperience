@@ -50,10 +50,10 @@ class Neighbourhood(models.Model):
         return self.name
 
 class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     email = models.CharField(max_length=200)
     bio = models.TextField()
-    hood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+    hood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, blank=True, null=True)
     pp = CloudinaryField('image')
 
     def save_profile(self):

@@ -1,5 +1,5 @@
 {% extends 'hood/base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
 <div class="container">
@@ -11,7 +11,7 @@
     <div>
       <div class="twPc-button">
               <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow -->
-              <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+              <a href="https://twitter.com/" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @{{profile.user.username}}</a>
               <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
               <!-- Twitter Button -->   
       </div>
@@ -25,7 +25,7 @@
           <a href="https://twitter.com">{{profile.user.first_name}} {{profile.user.last_name}}</a>
         </div>
         <span>
-          <a href="https://twitter.com/mertskaplan">@<span>{{profile.user.username}}</span></a>
+          <a href="https://twitter.com/">@<span>{{profile.user.username}}</span></a>
         </span>
         <p>{{profile.email}}</p>
       </div>
@@ -44,7 +44,7 @@
             </a>
           </li>
           <li class="twPc-ArrangeSizeFit">
-            <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+            <a href="" title="1.810 Followers">
               <span class="twPc-StatLabel twPc-block">Hood</span>
               <span class="twPc-StatValue">{{profile.hood.name}}</span>
             </a>
@@ -53,12 +53,44 @@
       </div>
     </div>
   </div>
+  <div class="posts">
+      <h1 class = text-center>Posts</h1>
+    {% if posts %}
+    <div class="available-posts">
+      {% for post in posts %}
+      {% endfor %}
     </div>
-  <div class="col-md-5">
-    <div class="edit">
-      <h1 class = 'text-center'>Edit Profile</h1>
-    </div>
+    {%else %}
+      <div class="no-posts">
+        <h4 class = 'text-muted'> You dont have any posts</h4>
+      </div>
+    {% endif %}
   </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="update-profile">
+        <!-- <h1> Edit Profile</h1> -->
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class = 'form-group'>
+            <legend class = "border-bottom mb-4">
+              Edit Your Profile
+            </legend>
+              {{form|crispy}}
+             <br>
+             <br>
+             <hr>
+      
+            <div class = 'form-group'>
+              <button class="btn btn-lg btn-outline-primary" type = submit>
+                Save
+              </button>
+            </div>
+      
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
   </div>
 
