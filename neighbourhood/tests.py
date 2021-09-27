@@ -1,3 +1,4 @@
+from cloudinary.api import update
 from django.test import TestCase
 from .models import Neighbourhood,Profile,Business,Posts,CustomUser
 
@@ -76,7 +77,7 @@ class TestApp(TestCase):
     def test_delete_profile(self):
         profile = self.profile
         profile.save_profile()
-        profile.delete_neighbourhood()
+        profile.delete_profile()
         user_profile = Profile.objects.all()
         self.assertEquals(len(user_profile) == 0)
 
@@ -86,3 +87,20 @@ class TestApp(TestCase):
         bist.delete_bist()
         user_bist = Business.objects.all()
         self.assertEquals(len(user_bist) == 0)
+
+
+   #test update methods
+    def test_update_hood(self):
+       hood = self.hood.create_neighbourhood()
+       hood_id= Neighbourhood.objects.first().id
+       Neighbourhood.update(description = 'new hood')
+       new_hood = Neighbourhood.objects.get(id = hood_id)
+       self.assertTrue(new_hood.description, 'new hood')
+
+
+    def test_bist_update(self):
+      bist = self.bs.create_bist()
+      bist_id = Business.objects.first().id
+      Business.upate(description = 'New bs')
+      new_bist = Business.objects.get(id = bist_id)
+      self.assertTrue(new_bist.description, 'New bs' )
