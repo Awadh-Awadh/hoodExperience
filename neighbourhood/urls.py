@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views
-from .views import hero,home,register,profile, bist
+from .views import hero,home,register,profile, bist,post
 
 
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
   path('logout/', views.LogoutView.as_view(), name = 'logout'),
   path('home/',home, name ='home' ),
   path('profile/',profile, name = 'profile'),
-  path('businesses/', bist, name= 'business' )
+  path('businesses/', bist, name= 'business' ),
+  path('post/',post,name = 'post')
 
 ]
