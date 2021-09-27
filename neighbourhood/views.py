@@ -4,6 +4,7 @@ from .forms import CustormUserCreationForm,EditProfile, PostForm
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Profile ,Neighbourhood, Posts, Business
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -34,6 +35,7 @@ def register(request):
 def hero(request):
     return render(request, 'hood/hero.html')
 
+@login_required
 def home(request):
     hood = request.user.profile.hood
     print(hood)
@@ -43,7 +45,7 @@ def home(request):
          'hood':hood
     }
     return render(request ,'hood/hoodView.html',context)
-
+@login_required
 def profile(request):
     loggedin_user = request.user
     profile = Profile.objects.get(user=loggedin_user)
@@ -67,7 +69,7 @@ def profile(request):
     }
     return render(request, 'hood/profile.html', context)
 
-
+@login_required
 def bist(request):
     bists = Business.objects.all()
     context = {
@@ -75,7 +77,7 @@ def bist(request):
     }
     return render(request, 'hood/business.html',context)
 
-
+@login_required
 def post(request):
     if request.method == 'POST':
         looged_user = request.user
@@ -96,11 +98,11 @@ def post(request):
     }
     return render(request, 'hood/post.html', context)
 
-
+@login_required
 def contacts(request):
     hood = request.user.profile.hood
     return render(request, 'hood/contact.html', {'hood':hood})
-
+@login_required
 def search(request):
     query = request.GET.get('q')
     results = Business.search_bist(query)
