@@ -77,8 +77,21 @@ def bist(request):
 
 
 def post(request):
-    form = PostForm()
+    if request.method == 'POST':
+        looged_user = request.user
+        hood = request.user.profile.hood
+        print(hood)
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            obj = form.save(commit = False)
+            obj.posted_by = looged_user
+            obj.hood = hood
+            form.save()
+            return redirect('home')
+
+    else:
+        form = PostForm()
     context = {
         'form':form
     }
-    return render(request, 'hood/post.html', form)
+    return render(request, 'hood/post.html', context)

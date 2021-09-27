@@ -145,3 +145,8 @@ ul.twPc-Arrange {
   position: fixed;
   left: 55rem;
 }
+.post-form{
+ width: 60%;
+ height: 500px;
+ margin: 4rem auto;
+}
