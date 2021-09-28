@@ -45,7 +45,7 @@ def home(request):
          'hood':hood
     }
     return render(request ,'hood/hoodView.html',context)
-@login_required
+@login_required(login_url='/login/')
 def profile(request):
     loggedin_user = request.user
     profile = Profile.objects.get(user=loggedin_user)
@@ -69,7 +69,7 @@ def profile(request):
     }
     return render(request, 'hood/profile.html', context)
 
-@login_required
+@login_required(login_url='/login/')
 def bist(request):
     bists = Business.objects.all()
     context = {
@@ -77,7 +77,7 @@ def bist(request):
     }
     return render(request, 'hood/business.html',context)
 
-@login_required
+@login_required(login_url='/login/')
 def post(request):
     if request.method == 'POST':
         looged_user = request.user
@@ -98,11 +98,11 @@ def post(request):
     }
     return render(request, 'hood/post.html', context)
 
-@login_required
+@login_required(login_url='/login/')
 def contacts(request):
     hood = request.user.profile.hood
     return render(request, 'hood/contact.html', {'hood':hood})
-@login_required
+@login_required(login_url='/login/')
 def search(request):
     query = request.GET.get('q')
     results = Business.search_bist(query)
