@@ -35,7 +35,7 @@ def register(request):
 def hero(request):
     return render(request, 'hood/hero.html')
 
-@login_required
+@login_required(login_url='/login/')
 def home(request):
     hood = request.user.profile.hood
     print(hood)
